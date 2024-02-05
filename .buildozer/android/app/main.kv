@@ -1,0 +1,38 @@
+<MainScreen>:
+
+    Label:
+        id: lbl
+        text: ''
+        pos_hint: {'top': 1, 'left': 1}
+        size_x: 40
+
+    VideoPlayer:
+        id: video_player
+        source: ''
+        size: 300, 400
+        options: {'fit_mode': 'contain'}
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.15
+
+
+
+            TextInput:
+                id: inpt
+                multiline: False
+                text: 'https://www.youtube.com/watch?v=B__UOykI0Mo'
+
+
+            Button:
+                id: btn
+                text: 'Play video'
+                on_press: root.play_video()
+
+
+
+
+
+
+
+
