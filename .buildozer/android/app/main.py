@@ -17,19 +17,22 @@ class MainScreen(Screen):
         super(MainScreen, self).__init__(**kwargs)
 
     def play_video(self):
-        webbrowser.open(self.ids.inpt.text)
-
-        '''sourse = self.ids.inpt.text
+        #webbrowser.open(self.ids.inpt.text)
+        sourse = self.ids.inpt.text
         if sourse:
             url, title = self.get_youtube_video_url(sourse)
+            print(11111)
             self.ids.video_player.source = url
             print(title)
-            self.ids.lbl.text = title'''
+            self.ids.lbl.text = title
 
     def get_youtube_video_url(self, youtube_url):
+        ssl._create_default_https_context = ssl._create_unverified_context
         yt = YouTube(youtube_url)
         title = yt.title
-        video_stream = yt.streams.filter(res='720p').first()
+        print('New title was load')
+        video_stream = yt.streams.filter(res='240p').first()
+        print('Stream')
         return video_stream.url, title
 
 
@@ -41,14 +44,6 @@ class MainScreen(Screen):
 
 class MyApp(App):
     def build(self):
-        ssl_context = ssl.create_default_context()
-
-        if platform == 'android':
-            # On Android, use the default CA certificates bundle included in the Python for Android distribution
-            ssl_context.load_default_certs()
-        else:
-            # On other platforms, use the default system CA certificates
-            ssl_context.load_default_certs()
 
         return MainScreen()
 
