@@ -21,7 +21,7 @@ class MainScreen(Screen):
         sourse = self.ids.inpt.text
         if sourse:
             url, title = self.get_youtube_video_url(sourse)
-            print(11111)
+            print('url', url)
             self.ids.video_player.source = url
             print(title)
             self.ids.lbl.text = title
@@ -31,7 +31,7 @@ class MainScreen(Screen):
         yt = YouTube(youtube_url)
         title = yt.title
         print('New title was load')
-        video_stream = yt.streams.filter(res='240p').first()
+        video_stream = yt.streams.filter(res='240p', file_extension='mp4').first()
         print('Stream')
         return video_stream.url, title
 

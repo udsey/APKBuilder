@@ -37,8 +37,22 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy, kivymd, pytube
+requirements = python3,kivy, kivymd, pytube, ffmpeg, certifi,
+certifi==2023.11.17,
+charset-normalizer==3.3.2,
+docutils==0.20.1,
+ffmpeg-python==0.2.0,
+ffpyplayer==4.5.1,
+future==0.18.3,
+idna==3.6,
+Kivy~=2.2.1,
+Kivy-Garden==0.1.5,
+Pygments==2.17.2,
+pytube==15.0.0,
+requests==2.31.0,
+urllib3==2.1.0
 
+kivymd~=1.1.1
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
 # requirements.source.kivy = ../../kivy
@@ -95,7 +109,7 @@ fullscreen = 0
 
 # (list) Permissions
 # (See https://python-for-android.readthedocs.io/en/latest/buildoptions/#build-options-1 for all the supported syntaxes and properties)
-android.permissions = android.permission.INTERNET, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18)
+android.permissions = android.permission.INTERNET, android.permission.WRITE_EXTERNAL_STORAGE, android.permission.READ_EXTERNAL_STORAGE
 
 # (list) features (adds uses-feature -tags to manifest)
 #android.features = android.hardware.usb.host

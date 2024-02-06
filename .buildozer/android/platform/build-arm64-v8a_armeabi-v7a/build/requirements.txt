@@ -1,7 +1,1 @@
-certifi
-chardet
-idna
-kivymd
-pytube
-requests
-urllib3
+libarm_arch.so
