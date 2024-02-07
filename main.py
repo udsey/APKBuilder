@@ -1,56 +1,12 @@
 from kivy.app import App
-from kivy.lang import Builder
-from pytube import YouTube
-from kivy.uix.screenmanager import  Screen
-import ssl
-from kivy.utils import platform
-from kivy.utils import platform
-import webbrowser
+from kivy.uix.videoplayer import VideoPlayer
 
 
-Builder.load_file("main.kv")
-
-
-
-class MainScreen(Screen):
-    def __init__(self, **kwargs):
-        super(MainScreen, self).__init__(**kwargs)
-
-    def play_video(self):
-        #webbrowser.open(self.ids.inpt.text)
-        sourse = self.ids.inpt.text
-        if sourse:
-            url, title = self.get_youtube_video_url(sourse)
-            print('url', url)
-            self.ids.video_player.source = url
-            print(title)
-            self.ids.lbl.text = title
-
-    def get_youtube_video_url(self, youtube_url):
-        ssl._create_default_https_context = ssl._create_unverified_context
-        yt = YouTube(youtube_url)
-        title = yt.title
-        print('New title was load')
-        video_stream = yt.streams.filter(res='240p', file_extension='mp4').first()
-        print('Stream')
-        return video_stream.url, title
-
-
-
-
-        #self.ids.video_player.source = url
-
-
-
-class MyApp(App):
+class APPPP(App):
     def build(self):
-
-        return MainScreen()
-
-
-
+        video = VideoPlayer(source='Historia_de_la_ciencia.mp4')
+        return video
 
 
 if __name__ == '__main__':
-    MyApp().run()
-
+    APPPP().run()
